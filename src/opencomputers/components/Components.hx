@@ -1,4 +1,4 @@
-package opencomputers.component;
+package opencomputers.components;
 
 import opencomputers.component.components.*;
 import haxe.extern.EitherType;

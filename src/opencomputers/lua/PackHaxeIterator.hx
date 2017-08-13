@@ -3,6 +3,9 @@ package opencomputers.lua;
 import lua.Table;
 import lua.TableTools;
 
+/**
+    Workaround for issue https://github.com/HaxeFoundation/haxe/issues/6510
+**/
 class PackHaxeIterator<T> {
     var state : Table<Int, Dynamic>;
     var f : Void->T;

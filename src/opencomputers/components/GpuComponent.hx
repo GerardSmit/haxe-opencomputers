@@ -1,4 +1,4 @@
-package opencomputers.component.components;
+package opencomputers.components;
 
 /**
     The gpu component

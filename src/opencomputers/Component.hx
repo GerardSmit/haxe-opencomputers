@@ -1,5 +1,6 @@
-package opencomputers.component;
+package opencomputers;
 
+import opencomputers.components.Components;
 import opencomputers.lua.MultiReturnIterator;
 
 /**
