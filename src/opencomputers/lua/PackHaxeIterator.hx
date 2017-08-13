@@ -1,4 +1,4 @@
-package oc.lua;
+package opencomputers.lua;
 
 import lua.Table;
 import lua.TableTools;

@@ -1,4 +1,4 @@
-package oc.component.components;
+package opencomputers.component.components;
 
 /**
     The screen component

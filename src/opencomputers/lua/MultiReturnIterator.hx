@@ -1,4 +1,4 @@
-package oc.lua;
+package opencomputers.lua;
 
 import lua.NativeIterator;
 

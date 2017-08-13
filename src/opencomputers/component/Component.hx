@@ -1,6 +1,6 @@
-package oc.component;
+package opencomputers.component;
 
-import oc.lua.MultiReturnIterator;
+import opencomputers.lua.MultiReturnIterator;
 
 /**
     The component API is used to access and interact with components available to a computer.

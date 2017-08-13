@@ -1,6 +1,6 @@
-package oc.component;
+package opencomputers.component;
 
-import oc.component.components.*;
+import opencomputers.component.components.*;
 import haxe.extern.EitherType;
 
 typedef Components = EitherType<ScreenComponent, EitherType<GpuComponent, ChunkloaderComponent>>;
