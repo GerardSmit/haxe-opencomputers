@@ -1,0 +1,12 @@
+{
+    "name": "opencomputers",
+    "url" : "https://github.com/gerardsmit/haxe-opencomputers",
+    "license": "MIT",
+    "tags": ["opencomputers"],
+    "description": "Haxe bindings for OpenComputers (https://github.com/MightyPirates/OpenComputers)",
+    "version": "0.0.1-alpha",
+    "classPath": "src/",
+    "releasenote": "First binding.",
+    "contributors": ["gerardsmit", "nexustix"],
+	"dependencies": {}
+  }
