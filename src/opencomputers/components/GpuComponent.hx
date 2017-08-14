@@ -7,7 +7,7 @@ import opencomputers.lua.LuaIndex;
 
     @see http://ocdoc.cil.li/component:gpu?s[]=gpu
 **/
-extern class GpuComponent {
+extern class GpuComponent extends Component {
     /**
         Tries to bind the GPU to a screen with the specified address. 
         Resets the screen's settings if reset is `true`. 

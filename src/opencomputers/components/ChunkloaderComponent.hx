@@ -5,7 +5,7 @@ package opencomputers.components;
 
     @see http://ocdoc.cil.li/component:chunkloader
 **/
-extern class ChunkloaderComponent {
+extern class ChunkloaderComponent extends Component {
 
     /**
         Returns whether the chunkloader is currently active.

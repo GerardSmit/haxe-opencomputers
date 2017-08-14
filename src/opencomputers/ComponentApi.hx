@@ -1,7 +1,7 @@
 package opencomputers;
 
 import lua.Table;
-import opencomputers.components.Components;
+import opencomputers.components.Component;
 import opencomputers.lua.MultiReturnIterator;
 
 /**
@@ -12,7 +12,7 @@ import opencomputers.lua.MultiReturnIterator;
 #else
 @:native("_G.component")
 #end
-extern class Component {
+extern class ComponentApi {
     /**
         Returns the documentation string for the method with the specified name of the component with the specified address, if any.
         
@@ -46,7 +46,7 @@ extern class Component {
     /**
         Gets a 'proxy' object for a component that provides all methods the component provides as fields, so they can be called more directly (instead of via invoke).
     **/
-    public static function proxy(address: String): Components;
+    public static function proxy(address: String): Component;
 
     /**
         Get the component type of the component with the specified address.
@@ -73,7 +73,7 @@ extern class Component {
         
         Throws an error if there is no primary component of the specified type.
     **/
-    public static function getPrimary(type: String): Components;
+    public static function getPrimary(type: String): Component;
 
     /**
         Sets a new primary component for the specified component type.

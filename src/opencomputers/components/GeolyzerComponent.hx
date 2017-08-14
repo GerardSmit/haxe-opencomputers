@@ -7,7 +7,7 @@ import lua.Table;
 
     @see http://ocdoc.cil.li/component:geolyzer
 **/
-extern class GeolyzerComponent {
+extern class GeolyzerComponent extends Component {
     /**
         Analyzes the density of the column
         at the specified relative coordinates.

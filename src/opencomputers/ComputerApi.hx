@@ -6,7 +6,7 @@ package opencomputers;
     @see http://ocdoc.cil.li/api:computer
 **/
 @:native("_G.computer")
-extern class Computer {
+extern class ComputerApi {
     /**
         Shuts down the computer.
         

@@ -5,7 +5,7 @@ package opencomputers.components;
 
     @see http://ocdoc.cil.li/component:screen
 **/
-extern class ScreenComponent {
+extern class ScreenComponent extends Component {
     /**
         Returns whether the screen is currently on.
     **/
