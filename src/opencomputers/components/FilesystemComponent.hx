@@ -26,7 +26,7 @@ extern class FilesystemComponent extends Component {
         Returns the new pointer position.
     **/
     @:luaDotMethod
-    public function seek(handle: Int, whence: String, offset: Int): Int;
+    public function seek(handle: Int, whence: SeekMode, offset: Int): Int;
     
     /**
         Creates a directory at the specified absolute path in the file system.
@@ -123,4 +123,22 @@ extern class FilesystemComponent extends Component {
     **/
     @:luaDotMethod
     public function setLabel(value: String): String;
+}
+
+@:enum
+abstract SeekMode(String) {
+    /**
+        Base is position 0 (beginning of the file)
+    **/
+    var Set = "set";
+
+    /**
+        Base is current position (default)
+    **/
+    var Cur = "cur";
+
+    /**
+        Base is end of file
+    **/
+    var End = "end";
 }
