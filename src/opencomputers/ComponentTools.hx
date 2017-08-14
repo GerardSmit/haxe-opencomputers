@@ -3,6 +3,16 @@ package opencomputers;
 import opencomputers.Component.GetResult;
 
 class ComponentTools {
+    #if openos
+    /**
+        Tries to resolve an abbreviated address to a full address.
+        
+        Returns the full address on success, or nil and an error message otherwise.
+    **/
+    public static inline function get(address: String, ?componentType: String): GetResult {
+        return Component.get(address, componentType);
+    }
+    #else
     /**
         Tries to resolve an abbreviated address to a full address.
         
@@ -17,4 +27,5 @@ class ComponentTools {
 
         return new GetResult(null, "no such component");
     }
+    #end
 }

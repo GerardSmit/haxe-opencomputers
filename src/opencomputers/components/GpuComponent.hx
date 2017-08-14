@@ -1,5 +1,7 @@
 package opencomputers.components;
 
+import opencomputers.lua.LuaIndex;
+
 /**
     The gpu component
 
@@ -70,13 +72,13 @@ extern class GpuComponent {
         Gets the RGB value of the color in the palette at the specified index.
     **/
     @:luaDotMethod
-    public function getPaletteColor(index: Int): Int;
+    public function getPaletteColor(index: LuaIndex): Int;
 
     /**
         Sets the RGB value of the color in the palette at the specified index.
     **/
     @:luaDotMethod
-    public function setPaletteColor(index: Int, color: Int): Int;
+    public function setPaletteColor(index: LuaIndex, color: Int): Int;
 
     /**
         Gets the maximum supported color depth supported by the GPU and the screen it is bound to (minimum of the two).
@@ -127,7 +129,7 @@ extern class GpuComponent {
         If the colors are from the palette, the fourth and fifth values specify the palette index of the color, otherwise they are nil.
     **/
     @:luaDotMethod
-    public function get(x: Int, y: Int): GetResult;
+    public function get(x: LuaIndex, y: LuaIndex): GetResult;
 
     /**
         Writes a string to the screen, starting at the specified coordinates. 
@@ -140,7 +142,7 @@ extern class GpuComponent {
         Returns `true` if the string was set to the buffer, `false` otherwise.
     **/
     @:luaDotMethod
-    public function set(x: Int, y: Int, value: String, ?vertical: Bool): Bool;
+    public function set(x: LuaIndex, y: LuaIndex, value: String, ?vertical: Bool): Bool;
 
     /**
         Copies a portion of the screens buffer to another location.
@@ -151,7 +153,7 @@ extern class GpuComponent {
         Returns `true` on success, `false` otherwise.
     **/
     @:luaDotMethod
-    public function copy(x: Int, y: Int, width: Int, height: Int, tx: Int, ty: Int): Bool;
+    public function copy(x: LuaIndex, y: LuaIndex, width: Int, height: Int, tx: Int, ty: Int): Bool;
 
     /**
         Fills a rectangle in the screen buffer with the specified character. 
@@ -164,7 +166,7 @@ extern class GpuComponent {
         Returns `true` on success, `false` otherwise.
     **/
     @:luaDotMethod
-    public function fill(x: Int, y: Int, width: Int, height: Int, char: String): Bool;
+    public function fill(x: LuaIndex, y: LuaIndex, width: Int, height: Int, char: String): Bool;
 }
 
 /**
