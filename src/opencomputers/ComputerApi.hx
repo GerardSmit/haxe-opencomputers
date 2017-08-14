@@ -70,7 +70,7 @@ extern class ComputerApi {
         
         @since 1.3
     **/
-    public static function getBootAddress(): Int;
+    public static function getBootAddress(): String;
 
     /**
         Set the address of the filesystem component from which to try to boot first.
@@ -79,7 +79,7 @@ extern class ComputerApi {
         
         @since 1.3
     **/
-    public static function setBootAddress(?address: String): Int;
+    public static function setBootAddress(?address: String): Void;
 
     /**
         Plays a tone, useful to alert users via audible feedback.
@@ -156,7 +156,7 @@ extern class ComputerApi {
         When the last user is removed from the user list, the computer becomes accessible to all players. 
     **/
     #end
-    public static function removeUser(name: String): AddUserResult;
+    public static function removeUser(name: String): Bool;
 
     /**
         Pushes a new signal into the queue.
@@ -167,7 +167,7 @@ extern class ComputerApi {
         
         Note that the types supported as signal parameters are limited to the basic types nil, boolean, number and string: tables and functions are not supported. 
     **/
-    public static function pushSignal(name: String, arguments: Rest<Null<EitherType<Bool, EitherType<String, EitherType<Int, Float>>>>>): Dynamic;
+    public static function pushSignal(name: String, arguments: Rest<Null<EitherType<Bool, EitherType<String, EitherType<Int, Float>>>>>): Void;
 
     /**
         Tries to pull a signal from the queue, waiting up to the specified amount of time before failing and returning `nil`. If no timeout is specified waits forever.
@@ -190,12 +190,12 @@ extern class ComputerApi {
         - `S`: Single-User mode, no components or filesystems initialized yet
         - `1`: Single-User mode, filesystems and components initialized - OpenOS finished booting
     **/
-    public static function runlevel(?address: String): Int;
+    public static function runlevel(?address: String): EitherType<Int, String>;
     #end
 }
 
 @:multiReturn
 extern class AddUserResult {
-    var success : Int;
+    var success : Null<Bool>;
     var error : String;
 }
