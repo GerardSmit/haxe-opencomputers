@@ -7,7 +7,7 @@ import lua.Table;
 
     @see http://ocdoc.cil.li/component:filesystem
 **/
-extern class Filesystem extends Component {
+extern class FilesystemComponent extends Component {
     /**
         The currently used capacity of the file system, in bytes.
     **/
