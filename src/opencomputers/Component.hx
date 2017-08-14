@@ -1,12 +1,17 @@
 package opencomputers;
 
+import lua.Table;
 import opencomputers.components.Components;
 import opencomputers.lua.MultiReturnIterator;
 
 /**
     The component API is used to access and interact with components available to a computer.
 **/
+#if openos
+@:luaRequire("component")
+#else
 @:native("_G.component")
+#end
 extern class Component {
     /**
         Returns the documentation string for the method with the specified name of the component with the specified address, if any.
@@ -32,6 +37,13 @@ extern class Component {
     public static function list(?filter: String, ?exact: Bool): MultiReturnIterator<ListItem>;
 
     /**
+        Returns a table with the names of all methods provided by the component with the specified address.
+        
+        The names are the keys in the table, the values indicate whether the method is called directly or not.
+    **/
+    public static function methods(address: String): Table<String, Bool>;
+
+    /**
         Gets a 'proxy' object for a component that provides all methods the component provides as fields, so they can be called more directly (instead of via invoke).
     **/
     public static function proxy(address: String): Components;
@@ -41,6 +53,7 @@ extern class Component {
     **/
     public static function type(address: String): String;
 
+    #if openos
     /**
         Tries to resolve an abbreviated address to a full address.
         
@@ -70,6 +83,7 @@ extern class Component {
         Triggers the component_unavailable and component_available signals if set to nil or a new value, respectively. 
     **/
     public static function setPrimary(type: String, address: String): Void;
+    #end
 }
 
 @:multiReturn
@@ -88,12 +102,17 @@ extern class ListItem {
 @:multiReturn
 extern class GetResult {
     /**
-        True if the component is available.
+        The full address.
     **/
-    var available : Bool;
+    var address : Null<String>;
 
     /**
         The error if available is false.
     **/
-    var error : String;
+    var error : Null<String>;
+
+    public function new(?address : String, ?error: String) {
+        this.address = available;
+        this.error = error;
+    }
 }
