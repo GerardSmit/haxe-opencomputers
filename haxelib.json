@@ -8,5 +8,5 @@
     "classPath": "src/",
     "releasenote": "First binding.",
     "contributors": ["gerardsmit", "nexustix"],
-	"dependencies": {}
-  }
+	  "dependencies": {}
+}
