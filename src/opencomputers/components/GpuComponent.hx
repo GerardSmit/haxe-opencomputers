@@ -44,7 +44,7 @@ extern class GpuComponent {
         Note that the color is expected to be specified in hexadecimal RGB format, i.e. `0xRRGGBB`. This is to allow uniform color operations regardless of the color depth supported by the screen and GPU.
     **/
     @:luaDotMethod
-    public function setBackground(): SetColorResult;
+    public function setBackground(color: Int): SetColorResult;
 
     /**
         Gets the current foreground color. This foreground color is applied to all “pixels” that get changed by other operations.
@@ -64,7 +64,7 @@ extern class GpuComponent {
         Note that the color is expected to be specified in hexadecimal RGB format, i.e. `0xRRGGBB`. This is to allow uniform color operations regardless of the color depth supported by the screen and GPU.
     **/
     @:luaDotMethod
-    public function setForeground(): SetColorResult;
+    public function setForeground(color: Int): SetColorResult;
 
     /**
         Gets the RGB value of the color in the palette at the specified index.
