@@ -39,14 +39,38 @@ extern class GpuComponent extends Component {
     /**
         Sets the background color to apply to “pixels” modified by other operations from now on. 
         
-        The returned value is the old background color, as the actual value it was set to (i.e. not compressed to the color space currently set). 
+        The returned value is the old foreground color, as the actual value it was set to (i.e. not compressed to the color space currently set). 
         The first value is the previous color as an RGB value. 
         If the color was from the palette, the second value will be the index in the palette. Otherwise it will be `null`. 
         
         Note that the color is expected to be specified in hexadecimal RGB format, i.e. `0xRRGGBB`. This is to allow uniform color operations regardless of the color depth supported by the screen and GPU.
     **/
     @:luaDotMethod
-    public function setBackground(color: Int): SetColorResult;
+    private function setBackground(color: Int, isPaletteColor: Bool): Dynamic;
+
+    /**
+        Sets the background color to apply to “pixels” modified by other operations from now on. 
+        
+        The returned value is the old foreground color, as the actual value it was set to (i.e. not compressed to the color space currently set). 
+        The first value is the previous color as an RGB value. 
+        If the color was from the palette, the second value will be the index in the palette. Otherwise it will be `null`. 
+        
+        Note that the color is expected to be specified in hexadecimal RGB format, i.e. `0xRRGGBB`. This is to allow uniform color operations regardless of the color depth supported by the screen and GPU.
+    **/
+    public inline function setBackgroundColor(color: Int): SetColorResult {
+        return setBackground(color, false);
+    }
+
+    /**
+        Sets the background color to apply to “pixels” modified by other operations from now on. 
+        
+        The returned value is the old foreground color, as the actual value it was set to (i.e. not compressed to the color space currently set). 
+        The first value is the previous color as an RGB value. 
+        If the color was from the palette, the second value will be the index in the palette. Otherwise it will be `null`. 
+    **/
+    public inline function setBackgroundPalette(index: LuaIndex): SetColorResult {
+        return setBackground(cast index, true);
+    }
 
     /**
         Gets the current foreground color. This foreground color is applied to all “pixels” that get changed by other operations.
@@ -66,7 +90,31 @@ extern class GpuComponent extends Component {
         Note that the color is expected to be specified in hexadecimal RGB format, i.e. `0xRRGGBB`. This is to allow uniform color operations regardless of the color depth supported by the screen and GPU.
     **/
     @:luaDotMethod
-    public function setForeground(color: Int): SetColorResult;
+    private function setForeground(color: Int, isPaletteColor: Bool): Dynamic;
+
+    /**
+        Sets the forground color to apply to “pixels” modified by other operations from now on. 
+        
+        The returned value is the old foreground color, as the actual value it was set to (i.e. not compressed to the color space currently set). 
+        The first value is the previous color as an RGB value. 
+        If the color was from the palette, the second value will be the index in the palette. Otherwise it will be `null`. 
+        
+        Note that the color is expected to be specified in hexadecimal RGB format, i.e. `0xRRGGBB`. This is to allow uniform color operations regardless of the color depth supported by the screen and GPU.
+    **/
+    public inline function setForegroundColor(color: Int): SetColorResult {
+        return setForeground(color, false);
+    }
+
+    /**
+        Sets the forground color to apply to “pixels” modified by other operations from now on. 
+        
+        The returned value is the old foreground color, as the actual value it was set to (i.e. not compressed to the color space currently set). 
+        The first value is the previous color as an RGB value. 
+        If the color was from the palette, the second value will be the index in the palette. Otherwise it will be `null`. 
+    **/
+    public inline function setForegroundPalette(index: LuaIndex): SetColorResult {
+        return setForeground(cast index, true);
+    }
 
     /**
         Gets the RGB value of the color in the palette at the specified index.
