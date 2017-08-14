@@ -122,7 +122,7 @@ extern class DataComponent extends Component {
         the original string.
     **/
     @luaDotMethod
-    public function ecdsa(data: String, key: Table<String, Type>): EiterType<String, Bool>;
+    public function ecdsa(data: String, key: ECUserdata): EiterType<String, Bool>;
 
     /**
         Tier 3
@@ -134,7 +134,7 @@ extern class DataComponent extends Component {
         `ecdh(userA.private, userB.public) == ecdh(userB.private, usera.public)`
     **/
     @luaDotMethod
-    public function ecdh(privateKey: Table<String, Type>, publicKey: Table<String, Type>): String;
+    public function ecdh(privateKey: ECUserdata, publicKey: ECUserdata): String;
 
     /**
         Tier 3
@@ -142,20 +142,23 @@ extern class DataComponent extends Component {
         Transforms a key from string to it's arbitrary type.
     **/
     @luaDotMethod
-    public function deserialize(data: String, type: String): Table<String, Type>;
+    public function deserialize(data: String, type: String): ECUserdata;
 
 }
 
-extern class OCDataKey{
+extern class ECUserdata{
     @luaDotMethod
     public function serialize(): String;
 
     @luaDotMethod
     public function isPublic(): Bool;
+
+    @luaDotMethod
+    public function keyType(): String;
 }
 
 @:multiReturn
 extern class OCKeyPair {
-    var keyOne: OCDataKey;
-    var keyTwo: OCDataKey;
+    var keyOne: ECUserdata;
+    var keyTwo: ECUserdata;
 }
