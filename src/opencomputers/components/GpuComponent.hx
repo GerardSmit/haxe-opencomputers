@@ -215,8 +215,6 @@ extern class SetColorResult {
     var paletteIndex: Null<Int>;
 }
 
-
-
 /**
     The bind result of GpuComponent.bind
 **/

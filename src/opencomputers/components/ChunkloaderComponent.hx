@@ -15,8 +15,8 @@ extern class ChunkloaderComponent {
 
     /**
         Enables or disables the chunkloader.
-        Returns the new state, which may be false
-        if no chunk loading ticket could be acquired
+        
+        Returns the new state, which may be `false` if no chunk loading ticket could be acquired.
     **/
     @:luaDotMethod
     public function setActive(enabled: Bool): Bool;

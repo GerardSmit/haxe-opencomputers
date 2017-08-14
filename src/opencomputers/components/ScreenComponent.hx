@@ -13,19 +13,21 @@ extern class ScreenComponent {
     public function isOn(): Bool;
     
     /**
-        Turns the screen on. Returns true if it was off.
+        Turns the screen on. Returns `true` if it was off.
     **/
     @:luaDotMethod
     public function turnOn(): Bool;
     
     /**
-        Turns off the screen. Returns true if it was on.
+        Turns off the screen. Returns `true` if it was on.
     **/
     @:luaDotMethod
     public function turnOff(): Bool;
     
     /**
-        The aspect ratio of the screen. For multi-block screens this is the number of blocks, horizontal and vertical.
+        The aspect ratio of the screen.
+        
+        For multi-block screens this is the number of blocks, horizontal and vertical.
     **/
     @:luaDotMethod
     public function getAspectRatio(): AspectRatio;
