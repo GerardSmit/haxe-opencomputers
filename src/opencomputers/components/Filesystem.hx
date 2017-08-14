@@ -12,7 +12,7 @@ extern class Filesystem extends Component {
         The currently used capacity of the file system, in bytes.
     **/
     @:luaDotMethod
-    public function analyze(): Int;
+    public function spaceUsed(): Int;
     
     /**
         Opens a new file descriptor and returns its handle.
@@ -109,10 +109,12 @@ extern class Filesystem extends Component {
     public function size(path: String): Int;
 
     /**
-        Reads up to the specified amount of data from an open file descriptor with the specified handle. Returns nil when EOF is reached.
+        Reads up to the specified amount of data from an open file descriptor with the specified handle.
+        
+        Returns nil when EOF is reached.
     **/
     @:luaDotMethod
-    public function read(handle: Int, count: Int): Null<Int>;
+    public function read(handle: Int, count: Int): Null<String>;
 
     /**
         Sets the label of the file system.
