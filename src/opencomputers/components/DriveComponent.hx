@@ -1,5 +1,7 @@
 package opencomputers.components;
 
+import opencomputers.lua.LuaIndex;
+
 /**
     The drive componet
 
@@ -12,13 +14,13 @@ extern class DriveComponent extends Component {
         Read a single byte at the specified offset.
     **/
     @:luaDotMethod
-    public function readByte(offset: Int): Int;
+    public function readByte(offset: LuaIndex): Int;
 
     /**
         Write a single byte to the specified offset.
     **/
     @:luaDotMethod
-    public function writeByte(offset: Int, value: Int): Void;
+    public function writeByte(offset: LuaIndex, value: Int): Void;
 
     /**
         Returns the size of a single sector on the drive, in bytes.
@@ -43,13 +45,13 @@ extern class DriveComponent extends Component {
         Read the current contents of the specified sector.
     **/
     @:luaDotMethod
-    public function readSector(sector: Int): String;
+    public function readSector(sector: LuaIndex): String;
 
     /**
         Write the specified contents to the specified sector.
     **/
     @:luaDotMethod
-    public function writeSector(sector: Int, value: String): Void;
+    public function writeSector(sector: LuaIndex, value: String): Void;
 
     /**
         Returns the number of platters in the drive.
